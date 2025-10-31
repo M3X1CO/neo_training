@@ -94,7 +94,7 @@ fn exercise_d() {
     
     // TASK: Place cursor on "new_delta" above and press *
     // This will highlight all instances. Press n to cycle through them.
-    // Then press # to go backwards through matches.
+    // Then press N or # to go backwards through matches.
     // Press: 'd to return to this exercise at any time
 }
 
@@ -111,7 +111,8 @@ fn exercise_d() {
 // SET YOUR MARK HERE: Press me to set mark 'e' at the start of this exercise
 
 fn exercise_e() {
-    println!("Hello World")  // Press: A then type ! then ESC
+    println!("Hello World")  // Press: A then type ! then ESC!
+    println!("day one")
     // Press: o to create a new line below and type a new println
     // Press: O to create a new line above this comment
     // Press: 'e to return to this exercise at any time
@@ -150,6 +151,7 @@ fn exercise_f() {
 //   ci{ = change inside braces
 //   cc = change entire line
 //   C = change from cursor to end of line
+//
 //
 // SET YOUR MARK HERE: Press mg to set mark 'g' at the start of this exercise
 
@@ -205,22 +207,22 @@ fn exercise_h() {
 //   yy = yank (copy) current line
 //   yw = yank word
 //   yiw = yank inner word
-//   y$ = yank to end of line
+//   y$ = yank to end of line or y0 to yank to beginning
 //   p = paste after cursor
 //   P = paste before cursor
-//
+
 // REGISTERS (named clipboards):
 //   "ayy = yank line into register 'a'
 //   "byw = yank word into register 'b'
 //   "ap = paste from register 'a'
 //   "bp = paste from register 'b'
-//
+
 // SYSTEM CLIPBOARD (copy/paste with other apps):
 //   "+y = yank to system clipboard
 //   "+p = paste from system clipboard
 //   "+yy = yank line to clipboard
 //   ggVG"+y = select all and copy to clipboard
-//
+
 // SET YOUR MARK HERE: Press mi to set mark 'i' at the start of this exercise
 
 fn exercise_i() {
@@ -228,7 +230,7 @@ fn exercise_i() {
     // TASK 1: Copy the line above and paste it below
     // 1. Navigate to the line above (press k with your bindings)
     // 2. Press: yy (yank line)
-    // 3. Press: j (move down with your bindings)
+    // 3. Press: k (move down with your bindings)
     // 4. Press: p (paste below)
     
     let duplicate = "copy me";
@@ -316,7 +318,7 @@ fn exercise_k() {
 fn exercise_l() {
     let values = (100, 200, 300);
     let message = "delete the text inside these quotes";
-    let array = [1, 2, 3, 4, 5];
+    let array = [];
     let code = { println!("inside braces"); };
     
     // TASK 1: Delete content inside parentheses
