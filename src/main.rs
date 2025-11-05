@@ -34,7 +34,7 @@ fn exercise_b() {
     let second = 2;
     // 'b=jump to mark b, 'x=jump to mark x, 'y=jump to mark y
     // ''=jump to previous position
-    // Press x to delete a char (any edit), k=down, `.=jump to last edit
+    // Press x to delet a char (any edit), k=down, `.=jump to last edit
     // 'b returns to mark
 }
 
@@ -69,7 +69,7 @@ fn exercise_d() {
 // me
 fn exercise_e() {
     // INSERT MODE and LINE JOINING
-    println!("Hello World")  // A=append at end, type !, ESC
+    println!("Hello World")  // A=append at end, type !, ESC!
     // k=down to next line
     println!("day one")
     // I=insert at start, type //, ESC (comments it), u=undo
@@ -77,14 +77,14 @@ fn exercise_e() {
     // O=open line above, type something, ESC, u=undo
     // Move to "Hello World!" line, k=down, J=join lines (adds space), u=undo
     // gJ=join without space, u=undo
-    let message = "Split
-    across lines";
+    let message = "Split across lines";
     // Move into string, J=join lines
     // 'e returns to mark
 }
 
 // mf
 fn exercise_f() {
+    // On these exercises its best to move to line then 0 to start at the beginning of the line
     // DELETION - Basic and advanced text objects
     let useless_variable = 123;
     // Move to line above, dd=delete line, u=undo
@@ -92,11 +92,12 @@ fn exercise_f() {
     // Move to line above, 0 then d$=delete to end, u=undo
     let delete_me_please = 789;
     // Move onto "delete_me_please", diw=delete inner word, u=undo
-    // 0 then dw=delete first word, u=undo
+    // 0 then w then dw=delete first word, u=undo
     // $ then d0=delete end to start, u=undo
     // x=delete single char, u=undo
     let values = (100, 200, 300);
     // Move to line, f(=jump to paren, di(=delete inside parens, u=undo
+    // after deleting inside parens i to insert new text
     // da(=delete around (includes parens), u=undo
     let message = "delete the text inside these quotes";
     // Move to line, f"=jump to quote, di"=delete inside quotes, u=undo
@@ -119,8 +120,8 @@ fn exercise_g() {
     let old_name = "change me";
     // Move to "old_name", ciw=change inner word, type new_name, ESC, u=undo
     println!("Replace this text");
-    // Move to line above, 0 then cw=change word, type debug, ESC, u=undo
-    // Move to start of line, cc=change entire line, type new line, ESC, u=undo
+    // Move to line above, 0 then fR, cw=change word, type debug, ESC, u=undo
+    // Move to line, cc=change entire line, type new line, ESC, u=undo
     let value = (100 + 200);
     // Move to line, f(=jump to paren, ci(=change inside parens, type 50 + 50, ESC, u=undo
     let text = "modify this string";
@@ -147,7 +148,7 @@ fn exercise_h() {
     let col1 = 10;
     let col2 = 20;
     let col3 = 30;
-    // Move to first =, Ctrl+v=visual block, k 2x=down, l 2x=right, d=delete, u=undo
+    // Move to first =, Ctrl+q=visual block, k 2x=down, L 2x=right, d=delete, u=undo
     // SELECT ALL: gg=top, V=visual line, G=bottom (entire file), ESC=cancel
     // Or: ggVG"+y=select all and copy to clipboard, ESC=cancel
     // Nuclear option: ggdG=delete entire file, u IMMEDIATELY
@@ -156,22 +157,23 @@ fn exercise_h() {
 
 // mi
     fn exercise_i() {
+    // << or >> tab an individual line back or forward
     // VISUAL PARAGRAPH MODE - Select and fix entire paragraphs
     // This function is intentionally misaligned!
     
-        let badly_indented = 1;
-let another_bad = 2;
-            let way_too_far = 3;
+    let badly_indented = 1;
+    let another_bad = 2;
+    let way_too_far = 3;
     
-    // Move into variables above, vip=select inner paragraph (stays in visual mode)
-    // While selected, press ==auto-indent to fix, u=undo
+    // Move to var 1 above, vip=select inner paragraph (stays in visual mode)
+    // While selected, press = which auto-indents to fix, u=undo
     // vap=select around paragraph (includes blank lines), d=delete, u=undo
     
-        let misaligned_block = {
-            let x = 1;
-        let y = 2;
-                let z = 3;
-        };
+    let misaligned_block = {
+        let x = 1;
+    let y = 2;
+            let z = 3;
+    };
     
     // Move into block, vip>=indent right (> while in visual mode), u=undo
     // vip<=un-indent left, u=undo
@@ -225,7 +227,7 @@ fn exercise_k() {
     // Move to line, f0=jump to 0, Ctrl+a=increment (0→1), Ctrl+a again (1→2)
     // Ctrl+x=decrement (2→1), u=undo all
     let numbers = [10, 20, 30, 40];
-    // Move to line, f1=jump to 10, Ctrl+a (10→11), w=next number, Ctrl+a (20→21)
+    // Move to line, f1=jump to 10, Ctrl+a (10→11), ww=next number, Ctrl+a (20→21)
     // u=undo, U=undo all changes on line
     // 'k returns to mark
 }
@@ -248,10 +250,11 @@ fn exercise_l() {
         value: 123,
         enabled: true
     };
-    // Move into config, di{=delete inside braces, u=undo
+    // Move into config {}, di{=delete inside braces, u=undo
     // da{=delete entire block with braces, u=undo
     let quoted = "change this text";
     // Move to line, ci"=change inside quotes, type new text, ESC, u=undo
+
     let paragraph_text = "This is a long paragraph that needs formatting.";
     // Move to line, yap=yank around paragraph, k=down, p=paste, u=undo
     
