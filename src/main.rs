@@ -1,21 +1,20 @@
 // ===================================================================== 
 // NEOVIM DAILY TRAINING - 12-15 MINUTE WORKOUT
 // =====================================================================
-// START HERE: Begin with exercise_a at line 16, set mark with ma
 // Custom bindings: j=UP, k=DOWN
 // NOTE: u=undo throughout (mentioned once per exercise or less)
 // ESC always returns to normal mode
 // =====================================================================
 
-// ma
+// ma set a mark here by pressing ma 'a to jump back here
 fn exercise_a() {
     // BASIC NAVIGATION - Learn to move around
     // k=down 5x to next line
     println!("You made it here!");
     // j=up 1x to go back
-    // k=down 2x to next line
+    // k=down 3x to next line
     println!("Now go back up!");
-    // 0=start of line, then l=right repeatedly, $=end of line, h=left repeatedly
+    // $=end of line, 0=start of line, l=right repeatedly, h=left repeatedly
     println!("Move through this line using l and h!");
     // 0=start, w=next word (try w w w to jump 3 words), b=back word, e=end of word
     println!("If it works but you don't understand why, it's only a matter of time before it breaks.");
@@ -27,33 +26,26 @@ fn exercise_a() {
 
 // mb
 fn exercise_b() {
-    // MARKS AND JUMPS - Set bookmarks to jump around
-    // k=down to next line, mx=set mark x
-    let first = 1;
-    // k=down 2x, my=set mark y
-    let second = 2;
+    // MARKS AND JUMPS - Set bookmarks to jump around, marks persist thru file closing
+    let first = 1; // 0 to start of line, mx to set mark x
+    let second = 2; // 0 to start of line, my to set mark y
     // 'b=jump to mark b, 'x=jump to mark x, 'y=jump to mark y
     // ''=jump to previous position
-    // Press x to delet a char (any edit), k=down, `.=jump to last edit
+    // Press x to delete a char (any edit), k=down, `.=jump to last edit
+    // mA-Z sets global marks. You can hop between two files by setting a mark in
+    // each file mA and mB for ex. then 'A will take you to file A, 'B takes you to
+    // file B fast tab through files your working
+    // gg=top of file, 'b=back here, G=bottom of file, 'b=back
+    // 10G=jump to line 10, :50 ENTER=jump to line 50, 'b=back
+    // Ctrl+d=half page down, Ctrl+u=half page up
+    // Ctrl+f=full page down, Ctrl+b=full page up
+    // H=top of screen, M=middle of screen, L=bottom of screen
+    // {=up one paragraph, }=down one paragraph
     // 'b returns to mark
 }
 
 // mc
 fn exercise_c() {
-    // SUPER FAST NAVIGATION - Jump across file and screen
-    println!("Start here");
-    // $=end of line, 0=start of line
-    // gg=top of file, 'c=back here, G=bottom of file, 'c=back
-    // 10G=jump to line 10, :50 ENTER=jump to line 50, 'c=back
-    // Ctrl+d=half page down, Ctrl+u=half page up
-    // Ctrl+f=full page down, Ctrl+b=full page up
-    // H=top of screen, M=middle of screen, L=bottom of screen
-    // {=up one paragraph, }=down one paragraph
-    // 'c returns to mark
-}
-
-// md
-fn exercise_d() {
     // SEARCH AND FIND - Locate text quickly
     let new_delta = 42;
     // Move onto "new_delta", *=search forward, n=next match, N=previous match
@@ -62,14 +54,14 @@ fn exercise_d() {
     // /squared ENTER=search forward for "squared", n=next match
     let new_delta_cubed = new_delta * new_delta * new_delta;
     // ?cubed ENTER=search backward for "cubed"
-    // :noh ENTER=remove search highlighting
-    // 'd returns to mark
+    // :noh ENTER=no search highlighting
+    // 'c returns to mark
 }
 
-// me
-fn exercise_e() {
+// md
+fn exercise_d() {
     // INSERT MODE and LINE JOINING
-    println!("Hello World")  // A=append at end, type !, ESC!
+    println!("Hello World")  // A=append at end, type !, ESC
     // k=down to next line
     println!("day one")
     // I=insert at start, type //, ESC (comments it), u=undo
@@ -79,13 +71,13 @@ fn exercise_e() {
     // gJ=join without space, u=undo
     let message = "Split across lines";
     // Move into string, J=join lines
-    // 'e returns to mark
+    // 'd returns to mark
 }
 
-// mf
-fn exercise_f() {
-    // On these exercises its best to move to line then 0 to start at the beginning of the line
+// me
+fn exercise_e() {
     // DELETION - Basic and advanced text objects
+    // On these exercises its best to move to line then 0 to start at beginning
     let useless_variable = 123;
     // Move to line above, dd=delete line, u=undo
     let another_useless = 456;
@@ -110,12 +102,11 @@ fn exercise_f() {
     // df;=delete including ;, u=undo
     let with_spaces = "word here";
     // Move to "word", diw=delete inner word (just "word"), u=undo
-    // daw=delete a word (includes space)
-    // 'f returns to mark
+    // 'e returns to mark
 }
 
-// mg
-fn exercise_g() {
+// mf
+fn exercise_f() {
     // CHANGE COMMANDS and CASE CHANGES
     let old_name = "change me";
     // Move to "old_name", ciw=change inner word, type new_name, ESC, u=undo
@@ -131,32 +122,28 @@ fn exercise_g() {
     // Move to "UPPERCASE", guiw=lowercase word, u=undo
     // Move to "lowercase", gUiw=uppercase word, u=undo
     // Move over first letter, ~=toggle case repeatedly
-    // 'g returns to mark
+    // 'f returns to mark
 }
 
-// mh
-fn exercise_h() {
+// mg
+fn exercise_g() {
     // VISUAL MODE - Select text character, line, and block-wise
-    let first_line = 1;
     let second_line = 2;
     let third_line = 3;
     let fourth_line = 4;
     // Move to "let second_line", V=visual line mode, k=extend down, d=delete, u=undo
     let word1 = 1;
-    let word2 = 2;
     // Move to "word1", v=visual mode, e=extend to end, y=yank, p=paste, u=undo
     let col1 = 10;
     let col2 = 20;
     let col3 = 30;
-    // Move to first =, Ctrl+q=visual block, k 2x=down, L 2x=right, d=delete, u=undo
+    // Move to first =, Ctrl+q=visual block, k 2x=down, l 4x=right, d=delete, u=undo
     // SELECT ALL: gg=top, V=visual line, G=bottom (entire file), ESC=cancel
-    // Or: ggVG"+y=select all and copy to clipboard, ESC=cancel
-    // Nuclear option: ggdG=delete entire file, u IMMEDIATELY
-    // 'h returns to mark
+    // 'g returns to mark
 }
 
-// mi
-    fn exercise_i() {
+// mh
+        fn exercise_h() {
     // << or >> tab an individual line back or forward
     // VISUAL PARAGRAPH MODE - Select and fix entire paragraphs
     // This function is intentionally misaligned!
@@ -187,32 +174,30 @@ fn exercise_h() {
     
     // Move to first block, vip=select inner (excludes blank), ESC=cancel
     // vap=select around (includes blank), ESC=cancel
-    // dap=delete around paragraph (from normal mode, no visual needed)
+    // 'h returns to mark
+}
+
+// mi
+fn exercise_i() {
+    // COPY AND PASTE - Yank with registers and clipboard
+    let copy_this_line = 999;
+    // Move to line above, yy=yank line, k=down, p=paste below, P=paste above, u=undo
+    let duplicate = "copy me";
+    // Move to "duplicate", yiw=yank word, k=down, move somewhere, p=paste, u=undo
+   let register_practice = "use named registers";
+    // Move to line, "ayy=yank to register a, k=down, "ap=paste from register a, u=undo
+    let word_one = 1;
+    let word_two = 2;
+    // Move to "word_one", "byw=yank word to register b, k=down to "word_two", diw "bp=paste, u=undo
+    let clipboard_test = "copy to system clipboard";
+    // Move to line, "+yy=yank to clipboard (now Ctrl+V works in other apps!)
+    // "+p=paste from clipboard, u=undo
+    // y$=yank to end, y0=yank to start
     // 'i returns to mark
 }
 
 // mj
 fn exercise_j() {
-    // COPY AND PASTE - Yank with registers and clipboard
-    let copy_this_line = 999;
-    // Move to line above, yy=yank line, k=down, p=paste below, u=undo
-    let duplicate = "copy me";
-    // Move to "duplicate", yiw=yank word, k=down, move somewhere, p=paste, u=undo
-    // P=paste before cursor, u=undo
-    let register_practice = "use named registers";
-    // Move to line, "ayy=yank to register a, k=down, "ap=paste from register a, u=undo
-    let word_one = 1;
-    let word_two = 2;
-    // Move to "word_one", "byw=yank word to register b, k=down to "word_two", "bp=paste, u=undo
-    let clipboard_test = "copy to system clipboard";
-    // Move to line, "+yy=yank to clipboard (now Ctrl+V works in other apps!)
-    // "+p=paste from clipboard, u=undo
-    // y$=yank to end, y0=yank to start
-    // 'j returns to mark
-}
-
-// mk
-fn exercise_k() {
     // EDIT OPERATIONS - Find/replace, undo/redo, increment/decrement
     let new_list = vec![1, 2, 3];
     let new_list_length = new_list.len();
@@ -221,19 +206,17 @@ fn exercise_k() {
     // :%s/new_list/old_list/gc ENTER=replace with confirmation (y/n), u=undo
     // :s/new_list/old_list/ ENTER=replace first in line, u=undo
     // :s/new_list/old_list/g ENTER=replace all in line, u=undo
-    let test = 123;
-    // Move to line, dd=delete, u=undo, dd again, Ctrl+r=redo, u=undo
     let counter = 0;
     // Move to line, f0=jump to 0, Ctrl+a=increment (0→1), Ctrl+a again (1→2)
     // Ctrl+x=decrement (2→1), u=undo all
     let numbers = [10, 20, 30, 40];
     // Move to line, f1=jump to 10, Ctrl+a (10→11), ww=next number, Ctrl+a (20→21)
     // u=undo, U=undo all changes on line
-    // 'k returns to mark
+    // 'j returns to mark
 }
 
-// ml
-fn exercise_l() {
+// mk
+fn exercise_k() {
     // POWER MOVES - Macros, dot command, and speed combos
     let item1 = 1;
     let item2 = 2;
@@ -245,27 +228,12 @@ fn exercise_l() {
     let value3 = 30;
     // Move to "value1", ciw type number ESC, move to "value2", .=repeat last change
     // Move to "value3", .=repeat again, u u u=undo all
-    let config = {
-        name: "test",
-        value: 123,
-        enabled: true
-    };
-    // Move into config {}, di{=delete inside braces, u=undo
-    // da{=delete entire block with braces, u=undo
     let quoted = "change this text";
     // Move to line, ci"=change inside quotes, type new text, ESC, u=undo
 
-    let paragraph_text = "This is a long paragraph that needs formatting.";
-    // Move to line, yap=yank around paragraph, k=down, p=paste, u=undo
-    
-    let indented = 1;
-    let needs_indent = 2;
-    
-    // Move to paragraph, >ip=indent right, u=undo
-    // <ip=un-indent left, u=undo
     // gqip=format/wrap paragraph, u=undo
     // gggqG=format entire file
-    // 'l returns to mark
+    // 'k returns to mark
 }
 
 // ============================================================================
@@ -276,10 +244,10 @@ fn exercise_l() {
 //             f/F/t/T ;,  Ctrl+f/b Ctrl+d/u :N NG
 // SEARCH: /text ?text n,N *,# :noh
 // INSERT: i,a,I,A,o,O
-// DELETE: x,dd,dw,d$,d0,diw,daw,di(,di{,di",di[,dt<c>,df<c>,dap
+// DELETE: x,dd,dw,d$,d0,diw,di(,di{,di",di[,dt<c>,df<c>
 // CHANGE: cw,ciw,ci",ci(,ci{,cc,C
 // CASE: ~ gUiw guiw
-// VISUAL: v,V,Ctrl+v  vip,vap  ggVG
+// VISUAL: v,V,Ctrl+q  vip,vap  ggVG
 // COPY/PASTE: yy,yw,yiw,y$,y0,p,P  "ay "ap "+y "+p
 // NUMBERS: Ctrl+a Ctrl+x
 // UNDO/REDO: u,Ctrl+r,U
