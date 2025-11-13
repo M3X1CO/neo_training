@@ -1,452 +1,221 @@
-# =====================================================================
-# NEOVIM DAILY
-# TRAINING - 15-20 MINUTE WORKOUT
-# =====================================================================
+# ==================================================================
+# neovim daily training - 12-15 minute workout
+# ==================================================================
+# custom bindings: j=up, k=down
+# note:always start by setting a mark before each exercise
+# move to the first line of code(not function) then follow the
+# instruction below.
+# after every change you make if in insert mode press esc u to undo
+# ==================================================================
 
-# === EXERCISE A: BASIC NAVIGATION (2 min) ===
-# Current position: top of file
-# Goal: Navigate to the println! below using ONLY these keys:
-#   j = UP one line      k = DOWN one line   (your custom bindings!)
-#   h = left one char    l = right one char
-#   w = next word start  b = back word start
-#   e = end of word
+# ma set a mark here by pressing ma 'a to jump back here
+def exercise_a():  # basic navigation - learn to move around
+    # k=down 4x to next line
+    print("you made it here!")
+    # j=up 1x to go back
+    # k=down 3x to next line
+    print("now go back up!")
+    # $=end of line, 0=start of line, l=right, h=left repeatedly
+    print("move through this line using l and h!")
+    # w=next word, b=back word, e=end of word
+    print("if it works but you don't understand why, "
+          "it's only a matter of time before it breaks.")
+    # f and f jump to char: fi=jump forward to 'i', fi= back to 'i'
+    # t and t jump before char: tw=before 'w', tw=back before 'w'
+    # ;=repeat last f/f/t/t, ,=repeat in opposite direction
+    # 'a returns to mark
 
-def exercise_a():
-    print("You made it here!")  # Press: 15k to jump down 15 lines
-    print("Now go back up!")    # Press: j to go up one line
-    print("Move word by word")  # Press: w w w to move 3 words right
 
-# === EXERCISE B: MARKS AND JUMPS (2 min) ===
-# Bookmarks (marks) - Set a mark now before navigating!
-#   m<letter> = set mark (e.g., ma, mb, mc)
-#   '<letter> = jump to mark (e.g., 'a, 'b, 'c)
-#   '' = jump back to previous position
-#   `. = jump to last edit position
-#
-# SET YOUR FIRST MARK HERE: Press mb to set mark 'b' at the start of this exercise
+# mb
+def exercise_b():  # marks and jumps - persist thru file closing
+    first = 1  # 0 to start, mx to set mark x, k move down
+    second = 2  # 0 to start, my to set mark y
+    # 'b=jump to mark b, 'x=jump to mark x, 'y=jump to mark y
+    # ''=jump to previous position
+    # press x to delete a char, k=down, `.=jump to last made edit
+    # ma-z sets global marks. you can hop between two files
+    # file ma and mb then 'a will take you to file a, 'b takes you
+    # to file b fast tab through files your working
+    # gg=top of file, 'b=back here, g=bottom of file, 'b=back
+    # 10g=jump to line 10, :50 enter=jump to line 50, 'b
+    # ctrl+d=half page down, ctrl+u=half page up
+    # ctrl+f=full page down, ctrl+b=full page up
+    # h=top of screen, m=middle of screen, l=bottom of screen
+    # {=up one paragraph ¶, }=down one paragraph ¶
+    # 'b returns to mark
 
-def exercise_b():
-    # Line 1: Set a mark here
-    first = 1
 
-    # Line 2: Set another mark here
-    second = 2
-
-    # TASK: Practice marks
-    # 1. Already set mark 'b' at the start of this exercise
-    # 2. Navigate to Line 1 below and press: mx (set mark 'x')
-    # 3. Navigate to Line 2 below and press: my (set mark 'y')
-    # 4. Press: 'b to jump back to start of this exercise
-    # 5. Press: 'x to jump to mark x
-    # 6. Press: 'y to jump to mark y
-    # 7. Press: '' to jump back to previous position
-
-# Set a mark here mv then use 'v + Ctrl+D when returning.
-# === EXERCISE C: SUPER FAST NAVIGATION (3 min) ===
-# Speed shortcuts - Remember to set a mark first!
-#   gg = jump to top of file (use your mark to return!)
-#   G = jump to bottom of file (use your mark to return!)
-#   0 = jump to start of line
-#   $ = jump to end of line
-#   { = jump up one paragraph
-#   } = jump down one paragraph
-#   Ctrl+F = page down (full page)
-#   Ctrl+B = page up (full page)
-#   Ctrl+D = half page down
-#   Ctrl+U = half page up
-#   H = jump to top of visible screen
-#   M = jump to middle of visible screen
-#   L = jump to bottom of visible screen
-#
-# SET YOUR MARK HERE: Press mc to set mark 'c' at the start of this exercise
-
-def exercise_c():
-    print("Start here")
-    # Press: $ to jump to end of this line
-    # Press: 0 to jump back to start of line
-    # Press: gg to jump to top of file, then 'c to jump back to mark
-    # Press: G to jump to bottom of file, then 'c to jump back to mark
-    # Press: mv to set mark 'v' here
-    # Press: Ctrl+D to jump down half a page
-    # Press: 'v to quickly return to this point
-    # Press: Ctrl+U to jump back up half a page
-    # Press: H to jump to top of screen, L for bottom, M for middle
-    # Press: 'c to return to this exercise at any time
-
-# === EXERCISE D: SEARCH AND FIND (3 min) ===
-# Search commands
-#   /search_term = search in a forward iteration for "search_term" + ENTER
-#   ?search_term = search in a backward iteration
-#   n = next match
-#   N = previous match
-#   * = search for word under cursor (forward)
-#   # = search for word under cursor (backward)
-#   :noh ENTER  No... no more highlight!
-# SET YOUR MARK HERE: Press md to set mark 'd' at the start of this exercise
-
-def exercise_d():
+# mc
+def exercise_c():  # search and find - locate text quickly
     new_delta = 42
+    # move onto "new_delta"
+    # *=search forward, #=search back, n=next n=previous match
     new_delta_squared = new_delta * new_delta
-    new_delta_cubed = new_delta * new_delta * new_delta
+    # search word /squared, ?squared enter forward-back n=next n=prev
+    # :noh enter=  nooo.... no search highlighting
+    # 'c returns to mark
 
-    # TASK: Place cursor on "new_delta" above and press *
-    # This will highlight all instances. Press n to cycle through them.
-    # Then press # to go backwards through matches.
-    # Press: 'd to return to this exercise at any time
 
-# === EXERCISE E: EDITING - INSERT MODE (2 min) ===
-# Enter insert mode:
-#   i = insert before cursor
-#   a = insert after cursor
-#   I = insert at start of line
-#   A = insert at end of line
-#   o = open new line below
-#   O = open new line above
-# Always press ESC to return to normal mode!
-#
-# SET YOUR MARK HERE: Press me to set mark 'e' at the start of this exercise
+# md
+def exercise_d():  # insert mode and line joining
+    print
+    ("hello world"
+    # move to hello world, a=append at end, type ), esc u=undo
+    # j=up a line gj=join lines, j join w/space
+    print("day one")
+    # i=insert at start, type # , esc (comments it)
+    # o=open, o=open line below-above, type something
+    # 'd returns to mark
 
-def exercise_e():
-    print("Hello World")  # Press: A then type ! then ESC
-    # Press: o to create a new line below and type a new print
-    # Press: O to create a new line above this comment
-    # Press: 'e to return to this exercise at any time
 
-# === EXERCISE F: DELETING TEXT (3 min) ===
-# Delete commands (normal mode):
-#   x = delete character under cursor
-#   dd = delete entire line
-#   dw = delete word
-#   d$ = delete from cursor to end of line
-#   d0 = delete from cursor to start of line
-#   diw = delete inner word (cursor anywhere in word)
-#   dap = delete a paragraph
-#
-# SET YOUR MARK HERE: Press mf to set mark 'f' at the start of this exercise
+# me
+def exercise_e():  # deletion - basic and advanced text objects
+    useless_variable = 123
+    # dd=delete line u=undo
+    another_useless = 456
+    # 0 then d$=delete to end
+    delete_me_please = 789
+    # move onto "delete_me_please", diw=delete inner word
+    # 0 then w then dw=delete first word
+    # $ then d0=delete end to start
+    # x=delete single char
+    values = (100, 200, 300)
+    # f(=jump to paren, di(=delete inside parens
+    # da plus ( or [ or { or " deletes around ([{"
+    message = "delete the text inside these quotes"
+    # f"=jump to quote, di"=delete inside ""
+    array = [1, 2, 3]
+    # f[=jump to [, di[=delete inside []
+    code = {"key": print("inside braces")}
+    # f{=jump to brace, di{=delete inside {}
+    sentence = "delete until semicolon; keep this"
+    # dt;=delete up to ;
+    # df;=delete including ;
+    # 'e returns to mark
 
-def exercise_f():
-    useless_variable = 123  # Press: dd to delete this entire line
-    another_useless = 456   # Press: 0 then d$ to delete from start
-    delete_me_please = 789  # Press: diw with cursor on "delete_me_please"
 
-    # Practice: Delete the word "useless" above:
-    # 1. Navigate to "useless" (use /useless then ENTER)
-    # 2. Press: diw (delete inner word)
-    # 3. Press: u to undo
-    # Press: 'f to return to this exercise at any time
-
-# === EXERCISE G: CHANGE COMMANDS (3 min) ===
-# Change = delete + enter insert mode:
-#   cw = change word
-#   ciw = change inner word (whole word)
-#   ci" = change inside quotes
-#   ci( = change inside parentheses
-#   ci{ = change inside braces
-#   cc = change entire line
-#   C = change from cursor to end of line
-#
-# SET YOUR MARK HERE: Press mg to set mark 'g' at the start of this exercise
-
-def exercise_g():
+# mf
+def exercise_f():  # change commands and case changes
     old_name = "change me"
-    print("Replace this text")
-    value = (100 + 200)
+    # move to "old_name", ciw=change inner word. esc, u=undo
+    print("replace this text")
+    # 0 then fr, cw=change word, type debug
+    # cc=change entire line, type new line
+    value = (100, 200)
+    # f(=jump to (, ci(=change inside ()
+    text = "modify this string"
+    # f"=jump to ", ci"=change inside ""
+    # c=change to end of line, type something
+    uppercase = "lowercase"
+    # fu, guiw=lowercase word
+    # flfl, guiw=uppercase word
+    # move over any letter, ~=toggle case repeatedly
+    # 'f returns to mark
 
-    # TASK 1: Change "old_name" to "new_name"
-    # 1. Put cursor on "old_name"
-    # 2. Press: ciw (change inner word)
-    # 3. Type: new_name
-    # 4. Press: ESC
 
-    # TASK 2: Change the string content
-    # 1. Put cursor anywhere in "change me"
-    # 2. Press: ci" (change inside quotes)
-    # 3. Type new text
-    # 4. Press: ESC
-    # Press: 'g to return to this exercise at any time
-
-# === EXERCISE H: VISUAL MODE - SELECT TEXT (3 min) ===
-# Visual mode for selecting:
-#   v = visual mode (character-wise)
-#   V = visual line mode (line-wise)
-#   Ctrl+v = visual block mode (column-wise)
-# Once in visual mode:
-#   Use h,j,k,l or w,b to expand selection
-#   d = delete selection
-#   c = change selection
-#   y = yank (copy) selection
-#
-# SET YOUR MARK HERE: Press mh to set mark 'h' at the start of this exercise
-
-def exercise_h():
-    first_line = 1
-    second_line = 2
+# mg
+def exercise_g():  # visual mode - select char, line, and block
+    second_line = 2  # 0 then set mark mz here
     third_line = 3
-    fourth_line = 4
+    # 'z, v=visual line mode, k=extend down, d=delete
+    word1 = 1
 
-    # TASK: Delete lines 2-3 above
-    # 1. Navigate to "second_line = 2"
-    # 2. Press: V (visual line mode)
-    # 3. Press: k (extend selection down - remember your custom bindings!)
-    # 4. Press: d (delete)
-    # 5. Press: u (undo)
-    # Press: 'h to return to this exercise at any time
+    # fw, v=visual mode, e=extend to end, y=yank, k p=paste
+    col1 = 10
+    col2 = 20
+    col3 = 30
+    # www to =, ctrl+q=visual block, k 2x, l 4x, d=delete
+    # select all: ggvg gg=top, v=visual line, g=bottom
+    # 'g returns to mark
 
-# === EXERCISE I: COPY AND PASTE (3 min) ===
-# Yank (copy) and paste:
-#   yy = yank (copy) current line
-#   yw = yank word
-#   yiw = yank inner word
-#   y$ = yank to end of line
-#   p = paste after cursor
-#   P = paste before cursor
-#
-# REGISTERS (named clipboards):
-#   "ayy = yank line into register 'a'
-#   "byw = yank word into register 'b'
-#   "ap = paste from register 'a'
-#   "bp = paste from register 'b'
-#
-# SYSTEM CLIPBOARD (copy/paste with other apps):
-#   "+y = yank to system clipboard
-#   "+p = paste from system clipboard
-#   "+yy = yank line to clipboard
-#   ggVG"+y = select all and copy to clipboard
-#
-# SET YOUR MARK HERE: Press mi to set mark 'i' at the start of this exercise
 
-def exercise_i():
+# mh
+        def exercise_h():  # formatting
+    # << or >> tab an individual line back or forward
+
+badly_indented = 1
+another_bad = 2
+way_too_far = 3
+
+    # vip=select inner ¶, then = to auto-indent
+    # vap=select around includes trailing space ¶, d=delete
+
+        misaligned_block = {
+            "x": 1,
+        "y": 2,
+                "z": 3
+        }
+
+    # vip>=indent right
+    # vip<=un-indent left
+    # vipy=yank paragraph, }=down ¶, p=paste
+    # 'h returns to mark
+
+
+# mi
+def exercise_i():  # copy and paste - yank w/ registers ® and clipboard
     copy_this_line = 999
-    # TASK 1: Copy the line above and paste it below
-    # 1. Navigate to the line above (press k with your bindings)
-    # 2. Press: yy (yank line)
-    # 3. Press: j (move down with your bindings)
-    # 4. Press: p (paste below)
-
+    # yy=yank line, k=down, p=paste below, P=paste above
     duplicate = "copy me"
-    # TASK 2: Copy just the word "duplicate"
-    # 1. Put cursor on "duplicate"
-    # 2. Press: yiw (yank inner word)
-    # 3. Navigate somewhere else
-    # 4. Press: p to paste
+    # move to "duplicate", yiw=yank word, $, p=paste
+    register_practice = "use named registers"
+    # "ayy=yank to ® a, k, "ap or "aP=paste below/above
+    word_one = 1
+    word_two = 2
+    # m2 "word_one", "byw=yank word ® b, k=down, diw "bp=paste
+    clipboard_test = "copy to system clipboard"
+    # "+yy=yank to clipboard, "+p /p paste below/above
+    # y$=yank to end, y0=yank to start
+    # 'i returns to mark
 
-    test_register = "practice registers"
-    # TASK 3: Use named registers
-    # 1. Put cursor on the line above
-    # 2. Press: "ayy (yank into register 'a')
-    # 3. Navigate elsewhere
-    # 4. Press: "ap (paste from register 'a')
 
-    clipboard_test = "copy to clipboard"
-    # TASK 4: Copy to system clipboard
-    # 1. Put cursor on line above
-    # 2. Press: "+yy (yank to clipboard)
-    # 3. Now you can Ctrl+V paste this in any other app!
-    # 4. Press: "+p to paste from clipboard into neovim
-    # Press: 'i to return to this exercise at any time
-
-# === EXERCISE J: FIND AND REPLACE (3 min) ===
-# Find and replace commands:
-#   :s/old/new/        = replace first occurrence in line
-#   :s/old/new/g       = replace all in line
-#   :%s/old/new/g      = replace all in file
-#   :%s/old/new/gc     = replace all with confirmation
-#   :s/old/new/gc      = replace in line with confirmation
-#
-# SET YOUR MARK HERE: Press mj to set mark 'j' at the start of this exercise
-
-def exercise_j():
+# mj
+def exercise_j():  # edit operations - find/replace, increment/decrement
     new_list = [1, 2, 3]
     new_list_length = len(new_list)
-    new_list_first = new_list[0]
+    # :%s/new_list/old_list/g /gc replace all or w/check
+    # :s/new_list/old_list/ /g replace first in line or all
+    counter = 0
+    # f0=jump to 0, ctrl+a=increment (0→1)
+    # ctrl+x=decrement (2→1)
+    numbers = [10, 20, 30, 40]
+    # f1=jump to 10, ctrl+a (10→11), f2 ^a f3 ^a u=undo all changes
+    # 'j returns to mark
 
-    # TASK: Replace all "new_list" with "old_list"
-    # 1. Press: :%s/new_list/old_list/g
-    # 2. Press: ENTER
-    # 3. Press: u to undo
 
-    # Alternative: Replace with confirmation
-    # 1. Press: :%s/new_list/old_list/gc
-    # 2. Press: y (yes) or n (no) for each match
-    # 3. Press: u to undo
-    # Press: 'j to return to this exercise at any time
-
-# === EXERCISE K: UNDO AND REDO (1 min) ===
-# Time travel:
-#   u = undo
-#   Ctrl+r = redo
-#   U = undo all changes on current line
-#
-# SET YOUR MARK HERE: Press mk to set mark 'k' at the start of this exercise
-
-def exercise_k():
-    test = 123
-
-    # TASK: Practice undo/redo
-    # 1. Delete this line with dd
-    # 2. Press: u (undo)
-    # 3. Delete it again with dd
-    # 4. Press: Ctrl+r (redo - it deletes again)
-    # 5. Press: u (undo - it comes back)
-    # Press: 'k to return to this exercise at any time
-
-# === EXERCISE L: ADVANCED DELETION (2 min) ===
-# Power delete commands:
-#   di( = delete inside parentheses
-#   di{ = delete inside braces
-#   di[ = delete inside brackets
-#   di" = delete inside quotes
-#   da( = delete around parentheses (includes parens)
-#   dt<char> = delete until <char>
-#   df<char> = delete including <char>
-#
-# SET YOUR MARK HERE: Press ml to set mark 'l' at the start of this exercise
-
-def exercise_l():
-    values = (100, 200, 300)
-    message = "delete the text inside these quotes"
-    array = [1, 2, 3, 4, 5]
-    code = {"inside": "braces"}
-
-    # TASK 1: Delete content inside parentheses
-    # 1. Cursor anywhere in (100, 200, 300)
-    # 2. Press: di(
-
-    # TASK 2: Delete the text inside quotes
-    # 1. Cursor anywhere in the string above
-    # 2. Press: di"
-
-    # TASK 3: Delete until the semicolon (or end of statement)
-    # 1. Cursor at start of a line (press 0)
-    # 2. Press: dt; (or d$ for end of line)
-    # Press: 'l to return to this exercise at any time
-
-# === EXERCISE M: MACROS - ULTIMATE POWER (2 min) ===
-# Record and replay actions:
-#   q<letter> = start recording macro (e.g., qa)
-#   q = stop recording
-#   @<letter> = play macro (e.g., @a)
-#   @@ = replay last macro
-#
-# SET YOUR MARK HERE: Press mm to set mark 'm' at the start of this exercise
-
-def exercise_m():
+# mk
+def exercise_k():  # power moves - macros, dot command
     item1 = 1
     item2 = 2
-    item3 = 3
+    # m2 item1, qq=record, ciw type element esc, q=stop record
+    # m2 item2, @q=replay macro, @@=replay last macro
+    value1 = 10
+    value2 = 20
+    value3 = 30
+    # m2 value1, ciw type number esc, m2 value2, .=repeat last change
+    # 'k returns to mark
 
-    # TASK: Record a macro to delete "item" and replace with "element"
-    # 1. Navigate to the first "item" above
-    # 2. Press: qq (start recording to register 'q')
-    # 3. Press: ciw (change inner word)
-    # 4. Type: element
-    # 5. Press: ESC
-    # 6. Press: q (stop recording)
-    # 7. Move to next line with k (down with your bindings)
-    # 8. Press: @q (replay macro)
-    # 9. Press: @@ (replay last macro on item3)
-    # Press: 'm to return to this exercise at any time
-
-# === EXERCISE N: SELECT ALL AND DELETE (1 min) ===
-# Nuclear option:
-#   ggVG = select entire file (gg + V + G)
-#   ggdG = delete entire file (gg + d + G)
-#
-# SET YOUR MARK HERE: Press mn to set mark 'n' at the start of this exercise
-
-def exercise_n():
-    # TASK: Select all and delete (then undo!)
-    # 1. Press: gg (go to top)
-    # 2. Press: V (visual line mode)
-    # 3. Press: G (select to bottom)
-    # 4. Press: d (delete)
-    # 5. Press: u (UNDO IMMEDIATELY!)
-
-    # OR shortcut:
-    # 1. Press: ggdG (delete entire file in one command)
-    # 2. Press: u (UNDO!)
-    # Press: 'n to return to this exercise at any time
-
-# === EXERCISE O: SPEED COMBOS (2 min) ===
-# Powerful combinations to practice:
-#   ci" = change inside quotes
-#   di{ = delete inside braces
-#   yap = yank a paragraph
-#   dap = delete a paragraph
-#   >ip = indent paragraph
-#   <ip = unindent paragraph
-#   gqip = format/wrap paragraph format text to 80 char length.
-#   gq}  = format until the end of the paragraph.
-#   gqap = format around the paragraph (includes any blank lines).
-#   gggqG = format the entire file.
-#   :set textwidth=80
-#
-# SET YOUR MARK HERE: Press mo to set mark 'o' at the start of this exercise
-
-def exercise_o():
-    config = {
-        "name": "test",
-        "value": 123,
-        "enabled": True
-    }
-
-    # TASK: Delete everything inside the braces
-    # 1. Cursor anywhere in the config
-    # 2. Press: di{
-    # 3. Press: u to undo
-    # Press: 'o to return to this exercise at any time
-
-# ============================================================================
-# === BONUS: DAILY PRACTICE ROUTINE ===
-# ============================================================================
-# Repeat these tasks daily:
-# 1. Set marks at the start of each exercise (a-o)
-# 2. Navigate to a function using /def
-# 3. Change a variable name using ciw
-# 4. Delete a line with dd
-# 5. Copy a line with yy and paste with p
-# 6. Find and replace a word using :%s/old/new/g
-# 7. Delete content inside quotes/braces using di" or di{
-# 8. Select multiple lines with V and delete with d
-# 9. Undo and redo with u and Ctrl+r
-# 10. Copy to clipboard with "+yy and paste with "+p
-# 11. Use your marks to jump back to any exercise with '<letter>
-#
-# TIP: Never reach for the mouse! Every time you want to use the mouse,
-#      stop and figure out the keyboard way. This is how you build muscle memory.
-# ============================================================================
-
-def main():
-    print("Neovim Training Program")
-    print("Complete all exercises above!")
-    print("Remember: ESC returns to normal mode")
-    print("Set marks at the start of each exercise!")
-    print("Use 'a through 'o to jump back to any exercise")
-    print("Additional marks x, y, v used within exercises")
-    print("Practice daily for 15-20 minutes")
-    print("You'll be a wizard in no time!")
-
-# ============================================================================
-# QUICK REFERENCE CHEAT SHEET
-# ============================================================================
-# MARKS: m<letter> (set mark)  '<letter> (jump to mark)  '' (jump back)
-#        Primary marks: a-o (one per exercise)
-#        Secondary marks: x, y, v (used within exercises)
-# NAVIGATION: h,j(UP),k(DOWN),l  w,b,e  0,$  gg,G  {,}
-#             Ctrl+F(page down) Ctrl+B(page up) Ctrl+D(half down) Ctrl+U(half up)
-#             H(top screen) M(middle screen) L(bottom screen)
-# SEARCH: /text  n,N  *,#
-# INSERT: i,a,I,A,o,O
-# DELETE: x,dd,dw,d$,diw,di(,di{,di"
-# CHANGE: cw,ciw,ci",ci(,ci{,cc,C
-# VISUAL: v,V,Ctrl+v
-# COPY/PASTE: yy,yw,yiw,p,P
-# REGISTERS: "ayy "byw "ap "bp (named clipboards)
-# CLIPBOARD: "+y (copy to system) "+p (paste from system) ggVG"+y (copy all)
-# UNDO/REDO: u,Ctrl+r
-# FIND/REPLACE: :%s/old/new/g
-# MACROS: q<letter> [actions] q, then @<letter>
-# ============================================================================
 
 if __name__ == "__main__":
-    main()
+    pass
+
+# ==================================================================
+# quick reference cheat sheet
+# ==================================================================
+# marks: m<letter> '<letter> '' `.
+# navigation: h,j(up),k(down),l  w,b,e  0,$  gg,g  {,}  h,m,l
+#             f/f/t/t ;,  ctrl+f/b ctrl+d/u :n ng
+# search: /text ?text n,n *,# :noh
+# insert: i,a,i,a,o,o
+# delete: x,dd,dw,d$,d0,diw,di(,di{,di",di[,dt<c>,df<c>
+# change: cw,ciw,ci",ci(,ci{,cc,c
+# case: ~ guiw guiw
+# visual: v,v,ctrl+q  vip,vap  ggvg
+# copy/paste: yy,yw,yiw,y$,y0,p,p  "ay "ap "+y "+p
+# numbers: ctrl+a ctrl+x
+# undo/redo: u,ctrl+r,u
+# find/replace: :%s/old/new/g  :%s/old/new/gc
+# repeat: . @<letter> @@
+# line join: j gj
+# indent: >ip <ip =ip
+# ==================================================================
