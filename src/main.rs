@@ -20,8 +20,8 @@ fn exercise_a() { // basic navigation - learn to move around
     // w=next word, b=back word, e=end of word
     println!("if it works but you don't understand why,
 it's only a matter of time before it breaks.");
-    // f and f jump to char: fi=jump forward to 'i', fi= back to 'i'
-    // t and t jump before char: tw=before 'w', tw=back before 'w'
+    // f and f jump to char: fi=jump forward to 'i', Fi= back to 'i'
+    // t and t jump before char: tw=before 'w', Tw=back before 'w'
     // ;=repeat last f/f/t/t, ,=repeat in opposite direction
     // 'a returns to mark
 }
@@ -33,10 +33,10 @@ fn exercise_b() { // marks and jumps - persist thru file closing
     // 'b=jump to mark b, 'x=jump to mark x, 'y=jump to mark y
     // ''=jump to previous position
     // press x to delete a char, k=down, `.=jump to last made edit
-    // ma-z sets global marks. you can hop between two files
-    // file ma and mb then 'a will take you to file a, 'b takes you 
-    // to file b fast tab through files your working
-    // gg=top of file, 'b=back here, g=bottom of file, 'b=back
+    // mA-Z sets global marks. you can hop between two files
+    // file mA and mB then 'A will take you to file A, 'B takes you 
+    // to file B fast tab through files your working
+    // gg=top of file, 'b=back here, G=bottom of file, 'b=back
     // 10g=jump to line 10, :50 enter=jump to line 50, 'b
     // ctrl+d=half page down, ctrl+u=half page up
     // ctrl+f=full page down, ctrl+b=full page up
@@ -61,9 +61,9 @@ fn exercise_d() { // insert mode and line joining
     println!
 ("hello world")
     // move to hello world, a=append at end, type ;, esc u=undo
-    // j=up a line gj=join lines, j join w/space
+    // j=up a line gJ=join lines, j join w/space
     println!("day one")
-    // i=insert at start, type // , esc (comments it)
+    // I=insert at start, type // , esc (comments it)
     // o=open, o=open line below-above, type something
     // 'd returns to mark
 }
@@ -81,6 +81,7 @@ fn exercise_e() { // deletion - basic and advanced text objects
     // x=delete single char
     let values = (100, 200, 300);
     // f(=jump to paren, di(=delete inside parens
+    // di plus ( or [ or { or " deletes inside ([{"
     // da plus ( or [ or { or " deletes around ([{"
     let message = "delete the text inside these quotes";
     // f"=jump to quote, di"=delete inside ""
@@ -98,17 +99,17 @@ fn exercise_e() { // deletion - basic and advanced text objects
 fn exercise_f() { // change commands and case changes
     let old_name = "change me";
     // move to "old_name", ciw=change inner word. esc, u=undo
-    println!("replace this text");
-    // 0 then fr, cw=change word, type debug
+    println!("Replace this text");
+    // 0 then fR, cw=change word, type debug
     // cc=change entire line, type new line
     let value = (100, 200);
     // f(=jump to (, ci(=change inside ()
     let text = "modify this string";
     // f"=jump to ", ci"=change inside ""
-    // c=change to end of line, type something
-    let uppercase = "lowercase";
+    // C=change to end of line, type something
+    let UPPERCASE = "lowercase";
     // fu, guiw=lowercase word
-    // flfl, guiw=uppercase word
+    // flfl, gUiw=uppercase word
     // move over any letter, ~=toggle case repeatedly
     // 'f returns to mark
 }
@@ -117,7 +118,7 @@ fn exercise_f() { // change commands and case changes
 fn exercise_g() { // visual mode - select char, line, and block
     let second_line = 2; // 0 then set mark mz here
     let third_line = 3;
-    // 'z, v=visual line mode, k=extend down, d=delete
+    // 'z, V=visual line mode, k=extend down, d=delete
     let word1 = 1;
 
     // fw, v=visual mode, e=extend to end, y=yank, k p=paste
@@ -125,7 +126,7 @@ fn exercise_g() { // visual mode - select char, line, and block
     let col2 = 20;
     let col3 = 30;
     // www to =, ctrl+q=visual block, k 2x, l 4x, d=delete
-    // select all: ggvg gg=top, v=visual line, g=bottom
+    // select all: ggVG gg=top, v=visual line, G=bottom
     // 'g returns to mark
 }
 
@@ -164,7 +165,7 @@ fn exercise_i() { // copy and paste - yank w/ registers ® and clipboard
     let word_two = 2;
     // m2 "word_one", "byw=yank word ® b, k=down, diw "bp=paste
     let clipboard_test = "copy to system clipboard";
-    // "+yy=yank to clipboard, "+p /p paste below/above
+    // "+yy=yank to clipboard, "+p /P paste below/above
     // y$=yank to end, y0=yank to start
     // 'i returns to mark
 }
