@@ -64,7 +64,7 @@ fn exercise_d() { // insert mode and line joining
     // j=up a line gJ=join lines, j join w/space
     println!("day one")
     // I=insert at start, type // , esc (comments it)
-    // o=open, o=open line below-above, type something
+    // o=open, O=open line below-above, type something
     // 'd returns to mark
 }
 
@@ -108,7 +108,7 @@ fn exercise_f() { // change commands and case changes
     // f"=jump to ", ci"=change inside ""
     // C=change to end of line, type something
     let UPPERCASE = "lowercase";
-    // fu, guiw=lowercase word
+    // fU, guiw=lowercase word
     // flfl, gUiw=uppercase word
     // move over any letter, ~=toggle case repeatedly
     // 'f returns to mark
