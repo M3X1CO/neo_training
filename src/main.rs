@@ -49,9 +49,9 @@ fn exercise_b() { // marks and jumps - persist thru file closing
 fn exercise_c() { // search and find - locate text quickly
     let new_delta = 42;
     // move onto "new_delta"
-    // *=search forward, #=search back, n=next n=previous match
+    // *=search forward, #=search back, n=next N=previous match
     let new_delta_squared = new_delta * new_delta;
-    // search word /squared, ?squared enter forward-back n=next n=prev
+    // search word /squared, ?squared enter forward-back n=next N=prev
     // :noh enter=  nooo.... no search highlighting
     // 'c returns to mark
 }
@@ -60,7 +60,7 @@ fn exercise_c() { // search and find - locate text quickly
 fn exercise_d() { // insert mode and line joining
     println!
 ("hello world")
-    // move to hello world, a=append at end, type ;, esc u=undo
+    // move to hello world, A=append at end, type ;, esc u=undo
     // j=up a line gJ=join lines, j join w/space
     println!("day one")
     // I=insert at start, type // , esc (comments it)
