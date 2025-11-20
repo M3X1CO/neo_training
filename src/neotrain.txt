@@ -1,0 +1,57 @@
+Welcome to the Neovim Adventure! Your goal is to complete all tasks embedded in this story. Each task tests a specific skill. Solve them using only Neovim commands.
+
+You are an explorer in the ancient city of Vimoria. The city is full of mysteries and locked doors, and only precise movements and manipulations of text will help you proceed.
+
+1. At the city gates, there are three engraved words: 'alpha', 'beta', and 'gamma'. Using marks, jump to the word 'beta' and copy it to your clipboard. Then return to the gate entrance to paste it three times in a column, one below the other.
+
+2. Proceed to the market. Traders sell items in a list:
+    - sword
+    - shield
+    - potion
+    - lantern
+Your task: swap 'sword' and 'potion' using visual mode commands only. Do not delete; move them efficiently.
+
+3. In the central library, there are ancient scrolls. One scroll contains repeated errors. Replace all occurrences of 'dragn' with 'dragon', but confirm each replacement. After finishing, increment all numbers in the scroll by 1.
+
+4. The city map has a series of directions mixed in a single paragraph. Practice word motions: jump from the start of the paragraph to the next occurrence of the word 'tower', then to 'bridge', then to 'cave'. Use only `f`, `t`, `F`, `T`, `w`, `e`, and `b`.
+
+5. In the armory, a rogue left behind notes:
+    "Attack: left, left, right, left"
+    Record this sequence into register 'a' as a macro, then replay it three times at the command post. Afterward, repeat the last macro with the `@.` command to confirm you understand repeating changes.
+
+6. In the tower, you find a locked chest. The combination is hidden in mixed capitalizations. Practice case manipulation: convert all lowercase letters in the combination to uppercase using visual mode and a single command.
+
+7. Finally, at the exit, you notice a scrambled list of treasures:
+    treasure1, treasure2, treasure3, treasure4
+Reverse the order using visual line commands, then yank the entire block into a register and paste it at the entrance for your reward.
+
+Every step rewards precision and efficiency. Use marks to remember key locations, search patterns to navigate, visual modes to manipulate, macros to automate, and registers to store valuables. Once all steps are done, you will have unlocked the “Neovim Master Explorer” achievement.
+
+Good luck!
+
+
+Game structure ideas
+
+You can build a progression:
+
+Chapter 1: The Gate of Motions
+Simple navigation tasks.
+
+Chapter 2: The Blade of Deletion
+dw, x, D, caw, ci"
+
+Chapter 3: The Glyph of Changes
+Use cw, s, r, R
+
+Chapter 4: Forbidden Edges
+Complex single-line rewrites
+
+Chapter 5: The Portal of True Vim
+Launch Neovim for a multi-line puzzle using nvim "$tmp"
+This is where marks, macros, visual mode, and text objects come alive.
+It becomes a hybrid Bash + Neovim adventure.
+
+That structure matches the mechanics constraints.
+
+Bash inline puzzles = quick micro-edits, modal mastery.
+Neovim side quests = bigger editing arcs.

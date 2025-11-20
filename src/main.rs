@@ -126,7 +126,7 @@ fn exercise_g() { // visual mode - select char, line, and block
     let col2 = 20;
     let col3 = 30;
     // www to =, ctrl+q=visual block, k 2x, l 4x, d=delete
-    // select all: ggVG gg=top, v=visual line, G=bottom
+    // select all: ggVG gg=top, V=visual line, G=bottom
     // 'g returns to mark
 }
 
@@ -149,7 +149,7 @@ let way_too_far = 3;
 
     // vip>=indent right
     // vip<=un-indent left
-    // vipy=yank paragraph, }=down ¶, p=paste
+    // vipy=yank paragraph, k=down ¶, p=paste
     // 'h returns to mark
 }
 
