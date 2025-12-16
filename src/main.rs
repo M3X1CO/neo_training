@@ -8,6 +8,18 @@
 // after every change you make if in insert mode press esc u to undo
 // ==================================================================
 
+// # Open both files at once
+// nvim file1.sh file2.lua
+//
+// # Then switch between them with:
+// :bnext    # or :bn - next buffer
+// :bprev    # or :bp - previous buffer
+// :buffer 1 # or :b1 - go to buffer 1
+// :buffer 2 # or :b2 - go to buffer 2
+
+// You can set Global marks in seperate files using mA-Z and jump 
+// between the files when opened in buffers.
+
 // ma set a mark here by pressing ma 'a to jump back here
 fn exercise_a() { // basic navigation - learn to move around 
     // k=down 4x to next line
